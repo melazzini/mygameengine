@@ -10,7 +10,27 @@ using testing::Return;
 using testing::Test;
 using testing::WithArgs;
 
-TEST(A, B)
+struct Color
 {
-    FAIL();
+    int r;
+    int g;
+    int b;
+    int alpha;
+};
+
+struct Window
+{
+    void clear(gsl::not_null<Renderer *> renderer, const Color color)
+    {
+    }
+};
+
+TEST(AWindow, CanClearItselfUsingTheRendererAndAColor)
+{
+    RenderEngine engine;
+    Renderer renderer{&engine};
+    Window wnd;
+    Color color{0, 0, 0, 255};
+
+    wnd.clear(&renderer, color);
 }

@@ -42,11 +42,12 @@ int main(int argc, char *argv[])
 
         SDL_SetRenderDrawColor(renderer, 101, 101, 130, 255);
         SDL_RenderClear(renderer);
-
+        
         SDL_SetRenderDrawColor(renderer, 200, 201, 10, 255);
         SDL_RenderFillRect(renderer, &rect);
 
         r.render(&image);
+
 
         SDL_RenderPresent(renderer);
     }
