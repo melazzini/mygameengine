@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmysimple2dgameengine.a CMakeFiles/mysimple2dgameengine.dir/AssetMng.cpp.o CMakeFiles/mysimple2dgameengine.dir/Entity.cpp.o CMakeFiles/mysimple2dgameengine.dir/EntityMng.cpp.o CMakeFiles/mysimple2dgameengine.dir/Game.cpp.o CMakeFiles/mysimple2dgameengine.dir/TextureMng.cpp.o
+/usr/bin/ranlib libmysimple2dgameengine.a

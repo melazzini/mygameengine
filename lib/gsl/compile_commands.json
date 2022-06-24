@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/home/francisco/Projects/gameEngines/sdl/2dgameEngine/build",
+  "command": "/usr/bin/c++  -I/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src -I/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/../lib/glm -I/usr/include/SDL2 -isystem /home/francisco/Projects/gameEngines/sdl/2dgameEngine/build/_deps/gsl-src/include -g -o CMakeFiles/app.dir/main.cpp.o -c /home/francisco/Projects/gameEngines/sdl/2dgameEngine/main.cpp",
+  "file": "/home/francisco/Projects/gameEngines/sdl/2dgameEngine/main.cpp"
+},
+{
+  "directory": "/home/francisco/Projects/gameEngines/sdl/2dgameEngine/build/src",
+  "command": "/usr/bin/c++  -I/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src -I/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/../lib/glm -I/usr/include/SDL2 -isystem /home/francisco/Projects/gameEngines/sdl/2dgameEngine/build/_deps/gsl-src/include -g -std=gnu++2a -o CMakeFiles/mysimple2dgameengine.dir/AssetMng.cpp.o -c /home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/AssetMng.cpp",
+  "file": "/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/AssetMng.cpp"
+},
+{
+  "directory": "/home/francisco/Projects/gameEngines/sdl/2dgameEngine/build/src",
+  "command": "/usr/bin/c++  -I/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src -I/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/../lib/glm -I/usr/include/SDL2 -isystem /home/francisco/Projects/gameEngines/sdl/2dgameEngine/build/_deps/gsl-src/include -g -std=gnu++2a -o CMakeFiles/mysimple2dgameengine.dir/Entity.cpp.o -c /home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/Entity.cpp",
+  "file": "/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/Entity.cpp"
+},
+{
+  "directory": "/home/francisco/Projects/gameEngines/sdl/2dgameEngine/build/src",
+  "command": "/usr/bin/c++  -I/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src -I/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/../lib/glm -I/usr/include/SDL2 -isystem /home/francisco/Projects/gameEngines/sdl/2dgameEngine/build/_deps/gsl-src/include -g -std=gnu++2a -o CMakeFiles/mysimple2dgameengine.dir/EntityMng.cpp.o -c /home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/EntityMng.cpp",
+  "file": "/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/EntityMng.cpp"
+},
+{
+  "directory": "/home/francisco/Projects/gameEngines/sdl/2dgameEngine/build/src",
+  "command": "/usr/bin/c++  -I/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src -I/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/../lib/glm -I/usr/include/SDL2 -isystem /home/francisco/Projects/gameEngines/sdl/2dgameEngine/build/_deps/gsl-src/include -g -std=gnu++2a -o CMakeFiles/mysimple2dgameengine.dir/Game.cpp.o -c /home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/Game.cpp",
+  "file": "/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/Game.cpp"
+},
+{
+  "directory": "/home/francisco/Projects/gameEngines/sdl/2dgameEngine/build/src",
+  "command": "/usr/bin/c++  -I/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src -I/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/../lib/glm -I/usr/include/SDL2 -isystem /home/francisco/Projects/gameEngines/sdl/2dgameEngine/build/_deps/gsl-src/include -g -std=gnu++2a -o CMakeFiles/mysimple2dgameengine.dir/TextureMng.cpp.o -c /home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/TextureMng.cpp",
+  "file": "/home/francisco/Projects/gameEngines/sdl/2dgameEngine/src/TextureMng.cpp"
+}
+]
