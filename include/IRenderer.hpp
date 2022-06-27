@@ -5,6 +5,8 @@
 struct IRenderer
 {
     virtual gsl::not_null<RenderEngine *> engine() const = 0;
+
+    virtual void present() const = 0;
 };
 
 #endif // !_IRENDERER_HPP_

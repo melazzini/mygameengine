@@ -11,6 +11,10 @@ struct Color
     int alpha;
 
     static const Color Black;
+    static const Color White;
+    static const Color Blue;
+    static const Color Red;
+    static const Color Green;
 };
 
 inline bool operator==(const Color &left, const Color &right)

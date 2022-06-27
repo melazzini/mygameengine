@@ -7,12 +7,26 @@
 
 using namespace std;
 
+struct WindowPrimitiveSdl : IWindowPrimitive
+{
+    virtual void clearWithRenderer(gsl::not_null<IRenderer *> renderer, const Color &color)
+    {
+        SDL_SetRenderDrawColor(renderer.get()->engine()->backendEngine(), color.r, color.g, color.b, color.alpha);
+        SDL_RenderClear(renderer.get()->engine()->backendEngine());
+    }
+
+    virtual void presentWithRenderer(gsl::not_null<IRenderer *> renderer)
+    {
+    }
+};
+
 int main(int argc, char *argv[])
 {
+    WindowPrimitiveSdl wndPrimitive;
     ImagePrimitiveSdl imagePrimitive;
     RenderEngine renderEngine;
     Renderer r{&renderEngine};
-    Window wnd;
+    Window wnd{&wndPrimitive};
     ImageLoader loader{&r};
 
     Image image{&imagePrimitive, loader, boost::uuids::uuid()};
@@ -42,10 +56,7 @@ int main(int argc, char *argv[])
             }
         }
 
-        // r.clearWindow(&wnd, Color::Black);
-
-        SDL_SetRenderDrawColor(renderer, 101, 101, 130, 255);
-        SDL_RenderClear(renderer);
+        r.clearWindow(&wnd, Color::Blue);
 
         SDL_SetRenderDrawColor(renderer, 200, 201, 10, 255);
         SDL_RenderFillRect(renderer, &rect);

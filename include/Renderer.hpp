@@ -31,7 +31,7 @@ struct Renderer : IRenderer
         wnd->primitive()->clearWithRenderer(this, color);
     }
 
-    void present() const
+    void present() const override
     {
         m_engine->presentScene();
     }

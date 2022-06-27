@@ -17,7 +17,7 @@ struct ImagePrimitiveMock : IImagePrimitive
     MOCK_METHOD(bool, empty, (), (const, override));
 };
 
-TEST(AnInstanceOfLoader, IsCreatedWithARenderer)
+TEST(AnInstanceOfLoader, DISABLED_IsCreatedWithARenderer)
 {
     RenderEngine engine;
 

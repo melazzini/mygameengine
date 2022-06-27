@@ -8,23 +8,24 @@ using testing::Invoke;
 using testing::NiceMock;
 using testing::Return;
 using testing::Test;
-using testing::WithArgs;
+using testing::Eq;
 
-
-struct AWindow : Test
+struct WindowPrimitiveMock : IWindowPrimitive
 {
-    RenderEngine engine;
-    Renderer renderer{&engine};
-    Window wnd;
-    Color color{0, 0, 0, 255};
+    MOCK_METHOD(void, clearWithRenderer, (gsl::not_null<IRenderer *>, const Color &), (override));
+    MOCK_METHOD(void, presentWithRenderer, (gsl::not_null<IRenderer *>), (override));
 };
 
-// TEST_F(AWindow, CanClearItselfUsingTheRendererAndAColor)
-// {
-//     wnd.clear(&renderer, color);
-// }
+TEST(AnInstanceOfWindow, IsCreateWithAPrimitive)
+{
+    WindowPrimitiveMock primitive;
+    Window wnd{&primitive};
+}
 
-// TEST_F(AWindow, CanPresentItselfWithTheRenderer)
-// {
-//     wnd.present(&renderer);
-// }
+TEST(AWindow, CanReturnARefToThePrimitive)
+{
+    WindowPrimitiveMock primitive;
+    Window wnd{&primitive};
+
+    ASSERT_THAT(wnd.primitive(), Eq(&primitive));
+}
