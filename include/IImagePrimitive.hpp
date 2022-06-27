@@ -4,13 +4,13 @@
 #include "gsl/gsl"
 #include <filesystem>
 
-struct Renderer;
+struct IRenderer;
 
 struct IImagePrimitive
 {
-    virtual void loadWithRenderer(gsl::not_null<Renderer *> renderer, const std::filesystem::path &path) = 0;
+    virtual void loadWithRenderer(gsl::not_null<IRenderer *> renderer, const std::filesystem::path &path) = 0;
 
-    virtual void paintWithRenderer(gsl::not_null<Renderer *> renderer) = 0;
+    virtual void paintWithRenderer(gsl::not_null<IRenderer *> renderer) = 0;
 
     virtual bool empty() const = 0;
 };

@@ -10,9 +10,9 @@ struct ImagePrimitiveSdl : IImagePrimitive
 {
     ImagePrimitiveSdl();
 
-    virtual void loadWithRenderer(gsl::not_null<Renderer *> renderer, const std::filesystem::path &path_) override;
+    virtual void loadWithRenderer(gsl::not_null<IRenderer *> renderer, const std::filesystem::path &path_) override;
 
-    virtual void paintWithRenderer(gsl::not_null<Renderer *> renderer) override;
+    virtual void paintWithRenderer(gsl::not_null<IRenderer *> renderer) override;
 
     virtual bool empty() const override;
 

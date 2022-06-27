@@ -3,6 +3,7 @@
 #include "Image.hpp"
 #include "IRenderer.hpp"
 #include "IImagePrimitive.hpp"
+#include "Window.hpp"
 
 struct Renderer : IRenderer
 {
@@ -20,11 +21,15 @@ struct Renderer : IRenderer
         else
         {
             image->primitive()->paintWithRenderer(this);
-            // image->renderPrimitive(this);
         }
     }
 
     gsl::not_null<RenderEngine *> engine() const override { return m_engine; }
+
+    void clearWindow(gsl::not_null<IWindow *> wnd, const Color &color)
+    {
+        wnd->primitive()->clearWithRenderer(this, color);
+    }
 
 private:
     gsl::not_null<RenderEngine *> m_engine;

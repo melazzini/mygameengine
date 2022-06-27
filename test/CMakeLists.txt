@@ -11,4 +11,4 @@ add_test(mytest cpp_test)
 
 target_include_directories(cpp_test PRIVATE "${CMAKE_SOURCE_DIR}/include")
 
-target_link_libraries(cpp_test gtest gmock gtest_main pthread)
+target_link_libraries(cpp_test gtest gmock gtest_main pthread mygameengine)

@@ -15,7 +15,7 @@ ImagePrimitiveSdl::ImagePrimitiveSdl()
     m_destRectangle = m_srcRectangle;
 }
 
-void ImagePrimitiveSdl::loadWithRenderer(gsl::not_null<Renderer *> renderer, const std::filesystem::path &path)
+void ImagePrimitiveSdl::loadWithRenderer(gsl::not_null<IRenderer *> renderer, const std::filesystem::path &path)
 {
     auto surface{IMG_Load(path.c_str())};
     auto texture{SDL_CreateTextureFromSurface(renderer->engine()->backendEngine(), surface)};
@@ -28,7 +28,7 @@ static const double ZeroDegrees = 0;
 
 static const SDL_Point *RotationAroundCenter = nullptr;
 
-void ImagePrimitiveSdl::paintWithRenderer(gsl::not_null<Renderer *> renderer)
+void ImagePrimitiveSdl::paintWithRenderer(gsl::not_null<IRenderer *> renderer)
 {
     auto ok = SDL_RenderCopyEx(renderer->engine()->backendEngine(), m_texture.get(), &m_srcRectangle, &m_destRectangle, ZeroDegrees, RotationAroundCenter, m_spriteFlip);
 }

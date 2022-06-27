@@ -7,7 +7,7 @@
 
 struct ImageLoader : IImageLoader
 {
-    ImageLoader(gsl::not_null<Renderer *> renderer)
+    ImageLoader(gsl::not_null<IRenderer *> renderer)
         : m_renderer{renderer}
     {
     }
@@ -22,7 +22,7 @@ struct ImageLoader : IImageLoader
     }
 
 private:
-    gsl::not_null<Renderer *> m_renderer;
+    gsl::not_null<IRenderer *> m_renderer;
 };
 
 #endif // _IMAGELOADER_HPP_

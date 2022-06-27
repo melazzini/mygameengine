@@ -19,12 +19,12 @@ struct AWindow : Test
     Color color{0, 0, 0, 255};
 };
 
-TEST_F(AWindow, CanClearItselfUsingTheRendererAndAColor)
-{
-    wnd.clear(&renderer, color);
-}
+// TEST_F(AWindow, CanClearItselfUsingTheRendererAndAColor)
+// {
+//     wnd.clear(&renderer, color);
+// }
 
-TEST_F(AWindow, CanPresentItselfWithTheRenderer)
-{
-    wnd.present(&renderer);
-}
+// TEST_F(AWindow, CanPresentItselfWithTheRenderer)
+// {
+//     wnd.present(&renderer);
+// }
