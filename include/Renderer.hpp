@@ -2,6 +2,7 @@
 #define _RENDERER_HPP_
 #include "Image.hpp"
 #include "IRenderer.hpp"
+#include "IImagePrimitive.hpp"
 
 struct Renderer : IRenderer
 {
@@ -18,7 +19,8 @@ struct Renderer : IRenderer
         }
         else
         {
-            image->renderPrimitive(this);
+            image->primitive()->paintWithRenderer(this);
+            // image->renderPrimitive(this);
         }
     }
 

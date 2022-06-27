@@ -8,7 +8,7 @@ struct Renderer;
 struct IImage
 {
     virtual bool empty() const = 0;
-    virtual void renderPrimitive(gsl::not_null<Renderer *> renderer) const = 0;
+    virtual gsl::not_null<IImagePrimitive *> primitive() const = 0;
 };
 
 #endif // !_IIMAGE_HPP_

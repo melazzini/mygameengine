@@ -2,6 +2,7 @@
 #include "include/ImagePrimitiveSdl.hpp"
 #include "include/Image.hpp"
 #include "include/Renderer.hpp"
+#include "include/Window.hpp"
 #include <SDL2/SDL.h>
 
 using namespace std;
@@ -11,6 +12,7 @@ int main(int argc, char *argv[])
     ImagePrimitiveSdl imagePrimitive;
     RenderEngine renderEngine;
     Renderer r{&renderEngine};
+    Window wnd;
     ImageLoader loader{&r};
 
     Image image{&imagePrimitive, loader, boost::uuids::uuid()};
@@ -40,16 +42,18 @@ int main(int argc, char *argv[])
             }
         }
 
+        wnd.clear(&r, Color{0, 0, 0, 255});
+
         SDL_SetRenderDrawColor(renderer, 101, 101, 130, 255);
         SDL_RenderClear(renderer);
-        
+
         SDL_SetRenderDrawColor(renderer, 200, 201, 10, 255);
         SDL_RenderFillRect(renderer, &rect);
 
         r.render(&image);
 
-
         SDL_RenderPresent(renderer);
+        wnd.present(&r);
     }
 
     cout << "Hello world!" << endl;

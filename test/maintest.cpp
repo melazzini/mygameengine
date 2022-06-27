@@ -1,5 +1,5 @@
 #include <gmock/gmock.h>
-#include "Image.hpp"
+#include "Window.hpp"
 #include "ImageLoader.hpp"
 #include "Renderer.hpp"
 
@@ -10,27 +10,21 @@ using testing::Return;
 using testing::Test;
 using testing::WithArgs;
 
-struct Color
-{
-    int r;
-    int g;
-    int b;
-    int alpha;
-};
 
-struct Window
-{
-    void clear(gsl::not_null<Renderer *> renderer, const Color color)
-    {
-    }
-};
-
-TEST(AWindow, CanClearItselfUsingTheRendererAndAColor)
+struct AWindow : Test
 {
     RenderEngine engine;
     Renderer renderer{&engine};
     Window wnd;
     Color color{0, 0, 0, 255};
+};
 
+TEST_F(AWindow, CanClearItselfUsingTheRendererAndAColor)
+{
     wnd.clear(&renderer, color);
+}
+
+TEST_F(AWindow, CanPresentItselfWithTheRenderer)
+{
+    wnd.present(&renderer);
 }

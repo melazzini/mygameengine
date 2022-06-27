@@ -8,7 +8,6 @@
 #include "ImageLoader.hpp"
 #include "IImage.hpp"
 
-
 /**
  * @brief This is an image-primitive (IImagePrimitive) manager.
  *
@@ -30,10 +29,7 @@ struct Image : IImage
 
     virtual bool empty() const override { return m_primitive->empty(); }
 
-    virtual void renderPrimitive(gsl::not_null<Renderer *> renderer) const override
-    {
-        m_primitive->paintWithRenderer(renderer);
-    }
+    virtual gsl::not_null<IImagePrimitive *> primitive() const override { return m_primitive; }
 
 private:
     IImageLoader &m_imageLoader;
