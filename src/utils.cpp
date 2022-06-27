@@ -71,11 +71,12 @@ void RenderEngine::initializeBackend()
                             if(sdlWindow)
                             {
                                 SDL_DestroyWindow(sdlWindow);
-                            } 
-                            }));
+                            } }));
 
     _backendEngine = makeUnique<SDL_Renderer>(
         renderer_creator, ([](SDL_Renderer *sdlRenderer)
                            {if(sdlRenderer)SDL_DestroyRenderer(sdlRenderer); }),
         _backendWindow.get());
 }
+
+void RenderEngine::presentScene() { SDL_RenderPresent(_backendEngine.get()); }

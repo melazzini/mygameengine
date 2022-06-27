@@ -12,10 +12,15 @@ using testing::Return;
 using testing::Test;
 using testing::WithArgs;
 
+struct RenderEngineMock : RenderEngine
+{
+    MOCK_METHOD(void, presentScene, (), (override));
+};
+
 struct WindowPrimitiveMock : IWindowPrimitive
 {
-    MOCK_METHOD(void, clearWithRenderer, (gsl::not_null<Renderer *> renderer, const Color &color), (override));
-    MOCK_METHOD(void, presentWithRenderer, (gsl::not_null<Renderer *> renderer), (override));
+    MOCK_METHOD(void, clearWithRenderer, (gsl::not_null<IRenderer *> renderer, const Color &color), (override));
+    MOCK_METHOD(void, presentWithRenderer, (gsl::not_null<IRenderer *> renderer), (override));
 };
 
 struct WindowMock : IWindow
@@ -39,7 +44,7 @@ struct ImagePrimitiveMock : IImagePrimitive
 struct TheRenderer : Test
 {
     ImageMock image;
-    RenderEngine engine;
+    RenderEngineMock engine;
     Renderer renderer{&engine};
     WindowMock wnd;
     WindowPrimitiveMock windowPrimitiveMock;
@@ -76,7 +81,13 @@ TEST_F(TheRenderer, ClearsTheWindowUsingThePrimitiveWindow)
 {
     EXPECT_CALL(wnd, primitive()).WillOnce(Return(&windowPrimitiveMock));
 
-    EXPECT_CALL(windowPrimitiveMock, clearWithRenderer(static_cast<gsl::not_null<Renderer *>>(&renderer), Color::Black));
+    EXPECT_CALL(windowPrimitiveMock, clearWithRenderer(static_cast<gsl::not_null<IRenderer *>>(&renderer), Color::Black));
 
     renderer.clearWindow(&wnd, Color::Black);
+}
+
+TEST_F(TheRenderer, PresentsTheCurrentSceneUsingTheEngine)
+{
+    EXPECT_CALL(engine, presentScene());
+    renderer.present();
 }

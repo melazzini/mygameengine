@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
             }
         }
 
-        // wnd.clear(&r, Color{0, 0, 0, 255});
+        // r.clearWindow(&wnd, Color::Black);
 
         SDL_SetRenderDrawColor(renderer, 101, 101, 130, 255);
         SDL_RenderClear(renderer);
@@ -52,8 +52,7 @@ int main(int argc, char *argv[])
 
         r.render(&image);
 
-        SDL_RenderPresent(renderer);
-        // wnd.present(&r);
+        r.present();
     }
 
     cout << "Hello world!" << endl;

@@ -3,6 +3,21 @@
 #include "gsl/gsl"
 #include <memory>
 
+struct Color
+{
+    int r;
+    int g;
+    int b;
+    int alpha;
+
+    static const Color Black;
+};
+
+inline bool operator==(const Color &left, const Color &right)
+{
+    return (left.r == right.r) && (left.g == right.g) && (left.b == right.b) && (left.alpha == right.alpha);
+}
+
 template <typename T, typename C, typename D, typename... Args>
 std::unique_ptr<T, D> makeUnique(C creator, D deleter, Args... args)
 {
@@ -16,8 +31,10 @@ struct RenderEngine
 {
     static gsl::not_null<SDL_Renderer *> backendEngine();
 
+    virtual void presentScene();
+
 private:
-    static std::unique_ptr<void, void(*)(void *)> _sdl;
+    static std::unique_ptr<void, void (*)(void *)> _sdl;
     static std::unique_ptr<SDL_Renderer, void (*)(SDL_Renderer *)> _backendEngine;
     static std::unique_ptr<SDL_Window, void (*)(SDL_Window *)> _backendWindow;
 

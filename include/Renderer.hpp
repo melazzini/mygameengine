@@ -31,6 +31,11 @@ struct Renderer : IRenderer
         wnd->primitive()->clearWithRenderer(this, color);
     }
 
+    void present() const
+    {
+        m_engine->presentScene();
+    }
+
 private:
     gsl::not_null<RenderEngine *> m_engine;
 };
