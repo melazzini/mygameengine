@@ -14,10 +14,6 @@ struct WindowPrimitiveSdl : IWindowPrimitive
         SDL_SetRenderDrawColor(renderer.get()->engine()->backendEngine(), color.r, color.g, color.b, color.alpha);
         SDL_RenderClear(renderer.get()->engine()->backendEngine());
     }
-
-    virtual void presentWithRenderer(gsl::not_null<IRenderer *> renderer)
-    {
-    }
 };
 
 int main(int argc, char *argv[])

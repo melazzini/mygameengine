@@ -20,7 +20,6 @@ struct RenderEngineMock : RenderEngine
 struct WindowPrimitiveMock : IWindowPrimitive
 {
     MOCK_METHOD(void, clearWithRenderer, (gsl::not_null<IRenderer *> renderer, const Color &color), (override));
-    MOCK_METHOD(void, presentWithRenderer, (gsl::not_null<IRenderer *> renderer), (override));
 };
 
 struct WindowMock : IWindow

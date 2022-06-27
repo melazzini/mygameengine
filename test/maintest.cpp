@@ -13,7 +13,6 @@ using testing::Eq;
 struct WindowPrimitiveMock : IWindowPrimitive
 {
     MOCK_METHOD(void, clearWithRenderer, (gsl::not_null<IRenderer *>, const Color &), (override));
-    MOCK_METHOD(void, presentWithRenderer, (gsl::not_null<IRenderer *>), (override));
 };
 
 TEST(AnInstanceOfWindow, IsCreateWithAPrimitive)

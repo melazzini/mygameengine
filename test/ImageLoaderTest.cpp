@@ -10,6 +10,11 @@ using testing::Return;
 using testing::Test;
 using testing::WithArgs;
 
+struct RenderEngineMock:RenderEngine
+{
+    MOCK_METHOD(void, presentScene,(),(override));
+};
+
 struct ImagePrimitiveMock : IImagePrimitive
 {
     MOCK_METHOD(void, loadWithRenderer, (gsl::not_null<IRenderer *> renderer, const std::filesystem::path &path), (override));
@@ -17,9 +22,9 @@ struct ImagePrimitiveMock : IImagePrimitive
     MOCK_METHOD(bool, empty, (), (const, override));
 };
 
-TEST(AnInstanceOfLoader, DISABLED_IsCreatedWithARenderer)
+TEST(AnInstanceOfLoader, IsCreatedWithARenderer)
 {
-    RenderEngine engine;
+    RenderEngineMock engine;
 
     Renderer r{&engine};
 
@@ -32,9 +37,7 @@ struct ALoader : Test
     NiceMock<ImagePrimitiveMock> primitive;
     std::filesystem::path path{"path"};
 
-    // Renderer r;
-
-    RenderEngine engine;
+    RenderEngineMock engine;
 
     Renderer r{&engine};
 

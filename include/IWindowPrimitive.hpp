@@ -8,8 +8,6 @@ struct IRenderer;
 struct IWindowPrimitive
 {
     virtual void clearWithRenderer(gsl::not_null<IRenderer *> renderer, const Color &color) = 0;
-
-    virtual void presentWithRenderer(gsl::not_null<IRenderer *> renderer) = 0;
 };
 
 
