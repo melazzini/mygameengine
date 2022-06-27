@@ -1,20 +1,13 @@
 #include <iostream>
+#include <SDL2/SDL.h>
+
 #include "include/ImagePrimitiveSdl.hpp"
 #include "include/Image.hpp"
 #include "include/Renderer.hpp"
 #include "include/Window.hpp"
-#include <SDL2/SDL.h>
+#include "include/WindowPrimitiveSdl.hpp"
 
 using namespace std;
-
-struct WindowPrimitiveSdl : IWindowPrimitive
-{
-    virtual void clearWithRenderer(gsl::not_null<IRenderer *> renderer, const Color &color)
-    {
-        SDL_SetRenderDrawColor(renderer.get()->engine()->backendEngine(), color.r, color.g, color.b, color.alpha);
-        SDL_RenderClear(renderer.get()->engine()->backendEngine());
-    }
-};
 
 int main(int argc, char *argv[])
 {

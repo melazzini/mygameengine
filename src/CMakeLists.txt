@@ -1,4 +1,4 @@
-add_library(mygameengine ImagePrimitiveSdl.cpp utils.cpp Window.cpp)
+add_library(mygameengine ImagePrimitiveSdl.cpp utils.cpp Window.cpp WindowPrimitiveSdl.cpp)
 
 target_include_directories(mygameengine PUBLIC ${CMAKE_SOURCE_DIR}/include)
 

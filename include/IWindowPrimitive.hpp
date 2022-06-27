@@ -1,5 +1,5 @@
 #ifndef _IWINDOWPRIMITIVE_HPP_
-#define _IWINDOPRIMITIVE_HPP_
+#define _IWINDOWPRIMITIVE_HPP_
 
 #include "utils.hpp"
 
