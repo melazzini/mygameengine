@@ -14,7 +14,6 @@ using testing::WithArgs;
 struct ImageMock : IImage
 {
     MOCK_METHOD(bool, empty, (), (const override));
-    MOCK_METHOD(void, renderPrimitive, (gsl::not_null<Renderer *> renderer), (const, override));
     MOCK_METHOD(gsl::not_null<IImagePrimitive *>, primitive, (), (const, override));
 };
 
@@ -44,8 +43,6 @@ TEST_F(TheRenderer, ThrowsWhenAttemptingToRenderAnImageIfItIsEmpty)
 TEST_F(TheRenderer, PassesItSelfToTheImagePrimitiveToRenderItIfTheImageIsNotEmpty)
 {
     EXPECT_CALL(image, empty).WillOnce(Return(false));
-
-    // EXPECT_CALL(image, renderPrimitive(static_cast<gsl::not_null<Renderer *>>(&renderer)));
     EXPECT_CALL(image, primitive()).WillOnce(Return(&primitiveMock));
 
     EXPECT_CALL(primitiveMock, paintWithRenderer(static_cast<gsl::not_null<Renderer *>>(&renderer)));

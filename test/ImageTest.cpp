@@ -59,29 +59,3 @@ TEST_F(AnImage, IsNotEmptyIfThePrimitiveIsNotEmpty)
 
     ASSERT_FALSE(image.empty());
 }
-
-struct ANonEmptyImage : Test
-{
-    NiceMock<ImagePrimitiveMock> primitive;
-    ImageLoaderMock imageLoader;
-    std::filesystem::path path{"path"};
-    boost::uuids::uuid uuid;
-    RenderEngine engine;
-    Renderer renderer{&engine};
-    std::unique_ptr<Image> image;
-
-    virtual void SetUp() override
-    {
-        ON_CALL(primitive, empty).WillByDefault(Return(false));
-        image = std::make_unique<Image>(&primitive, imageLoader, uuid);
-    }
-};
-
-TEST_F(ANonEmptyImage, ForwardsTheRendererToThePrimitiveToRenderItself)
-{
-    ASSERT_FALSE(image->empty());
-
-    EXPECT_CALL(primitive, paintWithRenderer(static_cast<gsl::not_null<Renderer *>>(&renderer)));
-
-    image->renderPrimitive(&renderer);
-}
