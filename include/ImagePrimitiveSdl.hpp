@@ -16,6 +16,9 @@ struct ImagePrimitiveSdl : IImagePrimitive
 
     virtual bool empty() const override;
 
+    virtual void setPosition(const Position &pos) override;
+    virtual Position position() const override;
+
 private:
     SDL_RendererFlip m_spriteFlip = SDL_FLIP_NONE;
     SDL_Rect m_srcRectangle;

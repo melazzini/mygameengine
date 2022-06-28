@@ -24,6 +24,12 @@ void ImagePrimitiveSdl::loadWithRenderer(gsl::not_null<IRenderer *> renderer, co
                                                                       { SDL_DestroyTexture(texture_); });
 }
 
+void ImagePrimitiveSdl::setPosition(const Position &pos)
+{
+    m_destRectangle.x = static_cast<int>(pos.x);
+    m_destRectangle.y = static_cast<int>(pos.y);
+}
+
 static const double ZeroDegrees = 0;
 
 static const SDL_Point *RotationAroundCenter = nullptr;
@@ -36,4 +42,10 @@ void ImagePrimitiveSdl::paintWithRenderer(gsl::not_null<IRenderer *> renderer)
 bool ImagePrimitiveSdl::empty() const
 {
     return m_texture == nullptr;
+}
+
+Position ImagePrimitiveSdl::position() const
+{
+    return Position{static_cast<double>(m_destRectangle.x),
+                    static_cast<double>(m_destRectangle.y)};
 }

@@ -3,6 +3,22 @@
 #include "gsl/gsl"
 #include <memory>
 
+struct Position
+{
+    double x{};
+    double y{};
+};
+
+inline bool operator==(const Position &left, const Position &right)
+{
+    return (left.x == right.x) && (left.y == right.y);
+}
+
+inline Position operator+(const Position &left, const Position &right)
+{
+    return Position{left.x + right.x, left.y + right.y};
+}
+
 struct Color
 {
     int r;

@@ -10,21 +10,6 @@ using testing::Return;
 using testing::Test;
 using testing::Eq;
 
-struct WindowPrimitiveMock : IWindowPrimitive
+TEST(A,B)
 {
-    MOCK_METHOD(void, clearWithRenderer, (gsl::not_null<IRenderer *>, const Color &), (override));
-};
-
-TEST(AnInstanceOfWindow, IsCreateWithAPrimitive)
-{
-    WindowPrimitiveMock primitive;
-    Window wnd{&primitive};
-}
-
-TEST(AWindow, CanReturnARefToThePrimitive)
-{
-    WindowPrimitiveMock primitive;
-    Window wnd{&primitive};
-
-    ASSERT_THAT(wnd.primitive(), Eq(&primitive));
 }

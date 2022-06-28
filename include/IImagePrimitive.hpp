@@ -4,6 +4,7 @@
 #include "gsl/gsl"
 #include <filesystem>
 
+struct Position;
 struct IRenderer;
 
 struct IImagePrimitive
@@ -13,6 +14,10 @@ struct IImagePrimitive
     virtual void paintWithRenderer(gsl::not_null<IRenderer *> renderer) = 0;
 
     virtual bool empty() const = 0;
+
+    virtual void setPosition(const Position &position) = 0;
+
+    virtual Position position() const = 0;
 };
 
 #endif // _IIMAGEPRIMITIVE_HPP_

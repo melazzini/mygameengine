@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     Window wnd{&wndPrimitive};
     ImageLoader loader{&r};
 
-    Image image{&imagePrimitive, loader, boost::uuids::uuid()};
+    Image image{&imagePrimitive, loader, boost::uuids::uuid(), Position{100, 100}};
 
     image.setImage("/home/francisco/Projects/gameEngines/mygameengine/assets/images/rock-big-3.png");
 
@@ -42,6 +42,22 @@ int main(int argc, char *argv[])
             else if (evt.type == SDL_WINDOWEVENT && evt.window.event == SDL_WINDOWEVENT_CLOSE)
             {
                 isRunning = false;
+            }
+            else if (evt.type == SDL_KEYDOWN && evt.key.keysym.sym == SDLK_RIGHT)
+            {
+                image.setPosition(image.position() + Position{10, 0});
+            }
+            else if (evt.type == SDL_KEYDOWN && evt.key.keysym.sym == SDLK_LEFT)
+            {
+                image.setPosition(image.position() + Position{-10, 0});
+            }
+            else if (evt.type == SDL_KEYDOWN && evt.key.keysym.sym == SDLK_UP)
+            {
+                image.setPosition(image.position() + Position{0, -10});
+            }
+            else if (evt.type == SDL_KEYDOWN && evt.key.keysym.sym == SDLK_DOWN)
+            {
+                image.setPosition(image.position() + Position{0, 10});
             }
         }
 

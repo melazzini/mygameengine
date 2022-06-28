@@ -20,6 +20,8 @@ struct ImagePrimitiveMock : IImagePrimitive
     MOCK_METHOD(void, loadWithRenderer, (gsl::not_null<IRenderer *> renderer, const std::filesystem::path &path), (override));
     MOCK_METHOD(void, paintWithRenderer, (gsl::not_null<IRenderer *> renderer), (override));
     MOCK_METHOD(bool, empty, (), (const, override));
+    MOCK_METHOD(void, setPosition, (const Position &), (override));
+    MOCK_METHOD(Position, position, (), (const, override));
 };
 
 TEST(AnInstanceOfLoader, IsCreatedWithARenderer)

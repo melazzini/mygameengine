@@ -7,6 +7,7 @@
 
 #include "ImageLoader.hpp"
 #include "IImage.hpp"
+#include "utils.hpp"
 
 /**
  * @brief This is an image-primitive (IImagePrimitive) manager.
@@ -17,9 +18,10 @@
  */
 struct Image : IImage
 {
-    Image(gsl::not_null<IImagePrimitive *> primitive, IImageLoader &loader, boost::uuids::uuid uuid)
+    Image(gsl::not_null<IImagePrimitive *> primitive, IImageLoader &loader, boost::uuids::uuid uuid, const Position &pos = {})
         : m_primitive{primitive}, m_imageLoader{loader}
     {
+        m_primitive->setPosition(pos);
     }
 
     void setImage(const std::filesystem::path &path)
@@ -31,9 +33,17 @@ struct Image : IImage
 
     virtual gsl::not_null<IImagePrimitive *> primitive() const override { return m_primitive; }
 
+    Position position() const { return m_primitive->position(); }
+
+    void setPosition(const Position &pos)
+    {
+        m_primitive->setPosition(pos);
+    }
+
 private:
     IImageLoader &m_imageLoader;
     gsl::not_null<IImagePrimitive *> m_primitive;
+    // Position m_position;
 };
 
 #endif // !_IMAGE_HPP_
