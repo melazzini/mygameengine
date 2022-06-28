@@ -1,6 +1,6 @@
 enable_testing()
 
-add_executable(cpp_test maintest.cpp ImageTest.cpp ImageLoaderTest.cpp RendererTest.cpp)
+add_executable(cpp_test maintest.cpp ImageTest.cpp ImageLoaderTest.cpp RendererTest.cpp WindowTest.cpp)
 
 set_target_properties(cpp_test PROPERTIES 
                         CXX_STANDARD 20
