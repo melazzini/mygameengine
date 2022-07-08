@@ -9,6 +9,12 @@ struct Position
     double y{};
 };
 
+struct Size
+{
+    double w{};
+    double h{};
+};
+
 inline bool operator==(const Position &left, const Position &right)
 {
     return (left.x == right.x) && (left.y == right.y);

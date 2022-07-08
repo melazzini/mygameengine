@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     Window wnd{&wndPrimitive};
     ImageLoader loader{&r};
 
-    Image image{&imagePrimitive, loader, boost::uuids::uuid(), Position{100, 100}};
+    Image image{&imagePrimitive, loader, boost::uuids::uuid(), Position{300, 100}};
 
     image.setImage("/home/francisco/Projects/gameEngines/mygameengine/assets/images/rock-big-3.png");
 
@@ -61,9 +61,9 @@ int main(int argc, char *argv[])
             }
         }
 
-        r.clearWindow(&wnd, Color::Blue);
+        r.clearWindow(&wnd, {200,110,10,200});
 
-        SDL_SetRenderDrawColor(renderer, 200, 201, 10, 255);
+        SDL_SetRenderDrawColor(renderer, 210, 201, 10, 255);
         SDL_RenderFillRect(renderer, &rect);
 
         r.render(&image);
